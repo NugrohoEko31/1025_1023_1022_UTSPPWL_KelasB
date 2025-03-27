@@ -37,9 +37,6 @@
                                     <form action="{{ route('users.destroy', $user->id) }}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-warning btn-sm">
-                                            <i class="bi bi-eye"></i> Show
-                                        </a>
                                         @if (!in_array('Super Admin', $user->getRoleNames()->toArray() ?? []))
                                             @can('edit-user')
                                                 <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm">
